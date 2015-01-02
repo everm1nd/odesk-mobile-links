@@ -8,4 +8,15 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   body
-    = yield
+    .site-wrapper
+      .site-wrapper-inner
+        .cover-container
+          .inner.cover
+            h1.cover-heading Store Linker
+            p.lead Create your own cross-platform link
+            p.lead
+              form.col-lg-12
+                .input-group.input-group-lg.col-sm-offset-4.col-sm-4
+                  input.center-block.form-control.input-lg placeholder=("Enter your email address") title=("Enter you email.") type="text" /
+                  span.input-group-btn
+                    button.btn.btn-lg.btn-success type="button" Link

@@ -1,3 +1,5 @@
 Rails.application.routes.draw do
-  root 'links#new'
+  root 'hubs#new'
+
+  resource :hub
 end
