@@ -12,9 +12,4 @@ html
       .site-wrapper-inner
         .cover-container
           .inner.cover
-            h1.cover-heading Store Linker
-            p.lead Create your own cross-platform link
-            p.lead
-              = simple_form_for @hub do |f|
-                  = f.input :links, as: :text, label: false
-                  = f.button :submit, class: 'btn-lg btn-success'
+            = yield

@@ -1,3 +1,3 @@
 class Hub < ActiveRecord::Base
-	attr_accessor :id, :links
+	attr_accessor :links
 end
