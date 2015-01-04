@@ -11,11 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150102100632) do
+ActiveRecord::Schema.define(version: 20150104162545) do
 
   create_table "hubs", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  create_table "markets", force: :cascade do |t|
+    t.string   "type",       limit: 255
+    t.string   "link",       limit: 255
+    t.integer  "hub_id",     limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "markets", ["hub_id"], name: "index_markets_on_hub_id", using: :btree
+  add_index "markets", ["type"], name: "index_markets_on_type", using: :btree
+
+  add_foreign_key "markets", "hubs"
 end
