@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150104162545) do
+ActiveRecord::Schema.define(version: 20150104172859) do
 
   create_table "apps", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20150104162545) do
 
   create_table "markets", force: :cascade do |t|
     t.string   "type",       limit: 255
-    t.string   "link",       limit: 255
+    t.string   "url",        limit: 255
     t.integer  "app_id",     limit: 4
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
