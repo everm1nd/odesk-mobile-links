@@ -1,6 +1,6 @@
-class CreateHubs < ActiveRecord::Migration
+class Createapps < ActiveRecord::Migration
   def change
-    create_table :hubs do |t|
+    create_table :apps do |t|
 
       t.timestamps null: false
     end

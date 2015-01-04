@@ -24,10 +24,10 @@ en:
     title: 'Store Links'
   simple_form:
     placeholders:
-      hub:
+      app:
         links: 'Place your links here, comma sepearted.'
   helpers:
     submit:
-      hub:
+      app:
         create: "Link"
         update: "Update"

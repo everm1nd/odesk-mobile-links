@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-describe Hub do
+describe App do
   it "accepts :links= attribute" do
-    expect(Hub.new).to respond_to(:links=)
+    expect(App.new).to respond_to(:links=)
   end
 end

@@ -3,11 +3,11 @@ class CreateMarkets < ActiveRecord::Migration
     create_table :markets do |t|
       t.string :type
       t.string :link
-      t.references :hub, index: true
+      t.references :app, index: true
 
       t.timestamps null: false
     end
     add_index :markets, :type
-    add_foreign_key :markets, :hubs
+    add_foreign_key :markets, :apps
   end
 end

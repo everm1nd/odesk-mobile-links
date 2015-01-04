@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'hubs#new'
+  root 'apps#new'
 
-  resources :hubs
+  resources :apps
 end
