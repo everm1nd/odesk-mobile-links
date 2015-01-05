@@ -51,4 +51,7 @@ group :development, :test do
 
   # RSpec testing framework
   gem 'rspec-rails', '~> 3.0'
+
+  # Pry developers console
+  gem 'pry-rails'
 end
