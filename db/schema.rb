@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150104172859) do
+ActiveRecord::Schema.define(version: 20150105131025) do
 
   create_table "apps", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20150104172859) do
   end
 
   create_table "markets", force: :cascade do |t|
-    t.string   "type",       limit: 255
+    t.string   "vendor",     limit: 255
     t.string   "url",        limit: 255
     t.integer  "app_id",     limit: 4
     t.datetime "created_at",             null: false
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20150104172859) do
   end
 
   add_index "markets", ["app_id"], name: "index_markets_on_app_id", using: :btree
-  add_index "markets", ["type"], name: "index_markets_on_type", using: :btree
+  add_index "markets", ["vendor"], name: "index_markets_on_vendor", using: :btree
 
   add_foreign_key "markets", "apps"
 end
