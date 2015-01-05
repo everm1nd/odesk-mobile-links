@@ -1,0 +1,7 @@
+.errors
+  p Following links are not valid:
+  ul
+    - unless @app.errors.empty?
+      - @app.markets.each do |market|
+        - unless market.valid?
+          li= market.url

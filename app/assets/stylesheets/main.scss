@@ -1,3 +1,7 @@
+/* "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables" */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
 /*
  * Globals
  */
@@ -7,16 +11,6 @@ a,
 a:focus,
 a:hover {
   color: #fff;
-}
-
-/* Custom default button */
-.btn-default,
-.btn-default:hover,
-.btn-default:focus {
-  color: #333;
-  text-shadow: none; /* Prevent inheritence from `body` */
-  background-color: #fff;
-  border: 1px solid #fff;
 }
 
 
@@ -100,5 +94,24 @@ body {
   .mastfoot,
   .cover-container {
     width: 700px;
+  }
+}
+
+/*
+* Form
+*/
+
+form.app {
+  .errors {
+    color: #e33;
+
+    ul {
+      text-align: left;
+      margin-bottom: 25px;
+    }
+  }
+
+  textarea {
+    height: 150px;
   }
 }

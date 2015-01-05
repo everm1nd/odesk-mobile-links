@@ -5,9 +5,9 @@ class App < ActiveRecord::Base
 
 	validates_associated :markets
 
-	def links=(lines)
-		strings = lines.split( /\r?\n/ )
-		strings.each do |string|
+	def links=(links)
+		@links = links
+		@links.split( /\r?\n/ ).each do |string|
 			markets.build(url: string)
 		end
 	end
