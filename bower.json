@@ -1,0 +1,6 @@
+{
+  "name": "XPlatform Links",
+  "dependencies": {
+    "zeroclipboard": "2.2.0"
+  }
+}
