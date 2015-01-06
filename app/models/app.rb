@@ -1,10 +1,14 @@
 class App < ActiveRecord::Base
+	require 'digest/md5'
+
 	attr_reader :links
 
   has_many :markets
 
 	validates :hashid, presence: true, uniqueness: true, if: :persisted?
 	validates_associated :markets
+
+	after_save :hashify
 
 	def links=(links)
 		@links = links
@@ -14,6 +18,15 @@ class App < ActiveRecord::Base
 	end
 
 	def shortlink
-		"http://appstore.me/#{id}"
+		"http://appstore.me/#{hashid}"
+	end
+
+	private
+	def hashify
+		update_column(:hashid, Digest::MD5.hexdigest(hash_salt + self.id.to_s)) unless hashid
+	end
+
+	def hash_salt
+		"whatever"
 	end
 end
