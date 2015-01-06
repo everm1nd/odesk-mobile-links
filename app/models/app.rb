@@ -3,6 +3,7 @@ class App < ActiveRecord::Base
 
   has_many :markets
 
+	validates :hashid, presence: true, uniqueness: true, if: :persisted?
 	validates_associated :markets
 
 	def links=(links)

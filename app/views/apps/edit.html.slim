@@ -2,10 +2,15 @@ h1.cover-heading Store Linker
 p.lead You can use this link now
 p.lead
   = simple_form_for @app, html: { class: 'app' } do |f|
-    = f.input :state, wrapper: :vertical_input_group, label: false do
+    = f.input :shortlink, wrapper: :vertical_input_group, label: false do
       = f.input_field :shortlink, label: false, class: 'form-control'
       span class="input-group-btn"
         button id="copy-btn" data-clipboard-text="#{@app.shortlink}" class="btn btn-success" type="button" Copy
+    = f.input :hashid, wrapper: :vertical_input_group, label: 'Customize your link' do
+      span class="input-group-addon" http://appme.io/
+      = f.input_field :hashid, label: 'Customize your link', class: 'form-control'
+      span class="input-group-btn"
+        = f.submit 'Customize', class:"btn btn-success"
     ul.markets
       - @app.markets.each do |market|
         li class="vendor-#{market.vendor}" =link_to market.url, market.url

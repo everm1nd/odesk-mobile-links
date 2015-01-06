@@ -6,18 +6,24 @@ class AppsController < ApplicationController
   def create
     @app = App.new(app_params)
     if @app.save
-      redirect_to @app
+      redirect_to edit_app_path(@app)
     else
-      render 'new'
+      render :new
     end
   end
 
-  def show
+  def edit
     @app = App.find(params[:id])
+  end
+
+  def update
+    @app = App.find(params[:id])
+    @app.update(app_params)
+    render :edit
   end
 
   private
   def app_params
-    params.require(:app).permit(:links)
+    params.require(:app).permit(:links, :hashid)
   end
 end
