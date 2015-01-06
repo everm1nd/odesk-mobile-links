@@ -41,6 +41,7 @@ GEM
       debug_inspector (>= 0.0.1)
     bootstrap-sass (3.3.1.0)
       sass (~> 3.2)
+    bower (0.0.2)
     builder (3.2.2)
     byebug (3.5.1)
       columnize (~> 0.8)
@@ -186,6 +187,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootstrap-sass (~> 3.3.1)
+  bower
   byebug
   coffee-rails (~> 4.1.0)
   jbuilder (~> 2.0)
