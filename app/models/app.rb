@@ -11,4 +11,8 @@ class App < ActiveRecord::Base
 			markets.build(url: string)
 		end
 	end
+
+	def shortlink
+		"http://appstore.me/#{id}"
+	end
 end

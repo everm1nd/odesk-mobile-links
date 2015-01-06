@@ -1,4 +1,8 @@
 h1.cover-heading Store Linker
 p.lead You can use this link now
 p.lead
-  = render 'form'
+  = simple_form_for @app, html: { class: 'app' } do |f|
+    = f.input :shortlink, label: false
+    ul.markets
+      - @app.markets.each do |market|
+        li class="vendor-#{market.vendor}" =link_to market.url, market.url

@@ -6,14 +6,6 @@
  * Globals
  */
 
-/* Links */
-a,
-a:focus,
-a:hover {
-  color: #fff;
-}
-
-
 /*
  * Base structure
  */
@@ -86,6 +78,7 @@ body {
   .mastfoot,
   .cover-container {
     width: 100%; /* Must be percentage or pixels for horizontal alignment */
+    max-width: 700px;
   }
 }
 
@@ -114,4 +107,25 @@ form.app {
   textarea {
     height: 150px;
   }
+}
+
+li {
+  $icon-size: 24px;
+
+  &.vendor-apple, &.vendor-facebook, &.vendor-microsoft, &.vendor-google {
+    height: 24px;
+    background-repeat: no-repeat;
+    padding-left: 35px;
+    margin-bottom: 7px;
+  }
+
+  &.vendor-apple { background-image: image-url('vendors/apple.png'); }
+  &.vendor-facebook { background-image: image-url('vendors/facebook.png'); }
+  &.vendor-microsoft { background-image: image-url('vendors/microsoft.png'); }
+  &.vendor-google { background-image: image-url('vendors/google.png'); }
+}
+
+ul.markets {
+  list-style: none outside none;
+  text-align: left;
 }
