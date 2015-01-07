@@ -3,6 +3,8 @@ class Market < ActiveRecord::Base
 
   validates_presence_of :url, :app, :vendor
 
+  before_save :process_apple_url, if: -> { vendor == "apple" }
+
   def initialize(*args)
     super(*args)
     classify_url
@@ -25,5 +27,10 @@ class Market < ActiveRecord::Base
         "amazon"
     end
     self.vendor = vendor
+  end
+
+  def process_apple_url
+    georiot_id = 5
+    self.url = "http://target.georiot.com/Proxy.ashx?tsid=#{georiot_id}&GR_URL=#{URI.encode(self.url,/\W/)}"
   end
 end
