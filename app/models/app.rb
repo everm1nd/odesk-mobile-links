@@ -3,10 +3,13 @@ class App < ActiveRecord::Base
 
   has_many :markets
 
-	validates :hashid, presence: true, uniqueness: true, if: :persisted?
+	validates :hashid,  presence: true,
+											uniqueness: true,
+											format: /[a-zA-Z0-9\_\-]+/,
+											if: :persisted?
 	validates_associated :markets
-
-	after_save :hashify
+	
+	after_save  :hashify
 
 	def links=(links)
 		@links = links

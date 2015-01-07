@@ -31,3 +31,10 @@ en:
       app:
         create: "Link"
         update: "Update"
+  activerecord:
+    errors:
+      models:
+        app:
+          attributes:
+            hashid:
+              invalid: 'you should use letter, digits and dash-mark only'
