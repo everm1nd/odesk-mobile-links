@@ -30,7 +30,7 @@ class Market < ActiveRecord::Base
   end
 
   def process_apple_url
-    georiot_id = 5
+    georiot_id = 6554
     self.url = "http://target.georiot.com/Proxy.ashx?tsid=#{georiot_id}&GR_URL=#{URI.encode(self.url,/\W/)}"
   end
 end
