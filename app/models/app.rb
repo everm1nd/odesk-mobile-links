@@ -1,6 +1,4 @@
 class App < ActiveRecord::Base
-	require 'digest/md5'
-
 	attr_reader :links
 
   has_many :markets
@@ -23,7 +21,7 @@ class App < ActiveRecord::Base
 
 	private
 	def hashify
-		update_column(:hashid, Digest::MD5.hexdigest(hash_salt + self.id.to_s)) unless hashid
+		update_column(:hashid, Hashids.new(hash_salt).encode(self.id)) unless hashid
 	end
 
 	def hash_salt

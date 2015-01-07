@@ -19,6 +19,7 @@ gem 'slim', '~> 3.0.1'
 gem 'bootstrap-sass', '~> 3.3.1'
 gem 'simple_form'
 gem 'bower'
+gem 'hashids'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
