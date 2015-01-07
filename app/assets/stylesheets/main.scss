@@ -112,17 +112,18 @@ form.app {
 li {
   $icon-size: 24px;
 
-  &.vendor-apple, &.vendor-facebook, &.vendor-microsoft, &.vendor-google {
+  &.vendor-apple, &.vendor-facebook, &.vendor-microsoft, &.vendor-google, &.vendor-amazon {
     height: 24px;
     background-repeat: no-repeat;
     padding-left: 35px;
     margin-bottom: 7px;
   }
 
-  &.vendor-apple { background-image: image-url('vendors/apple.png'); }
-  &.vendor-facebook { background-image: image-url('vendors/facebook.png'); }
+  &.vendor-apple     { background-image: image-url('vendors/apple.png'); }
+  &.vendor-facebook  { background-image: image-url('vendors/facebook.png'); }
   &.vendor-microsoft { background-image: image-url('vendors/microsoft.png'); }
-  &.vendor-google { background-image: image-url('vendors/google.png'); }
+  &.vendor-google    { background-image: image-url('vendors/google.png'); }
+  &.vendor-amazon    { background-image: image-url('vendors/amazon.png'); }
 }
 
 ul.markets {
