@@ -18,7 +18,7 @@ class App < ActiveRecord::Base
 	end
 
 	def shortlink
-		"http://appstore.me/#{hashid}"
+		"#{App.shorthost}/#{hashid}"
 	end
 
 	private
@@ -28,5 +28,9 @@ class App < ActiveRecord::Base
 
 	def hash_salt
 		"whatever"
+	end
+
+	def self.shorthost
+		'http://appme.io'
 	end
 end

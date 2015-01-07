@@ -7,7 +7,7 @@ p.lead
       span class="input-group-btn"
         button id="copy-btn" data-clipboard-text="#{@app.shortlink}" class="btn btn-success" type="button" Copy
     = f.input :hashid, wrapper: :vertical_input_group, label: 'Customize your link' do
-      span class="input-group-addon" http://appme.io/
+      span class="input-group-addon" = App.shorthost + '/'
       = f.input_field :hashid, label: 'Customize your link', class: 'form-control'
       span class="input-group-btn"
         = f.submit 'Customize', class:"btn btn-success"
