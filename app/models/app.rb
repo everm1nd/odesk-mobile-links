@@ -8,7 +8,7 @@ class App < ActiveRecord::Base
 											format: /[a-zA-Z0-9\_\-]+/,
 											if: :persisted?
 	validates_associated :markets
-	
+
 	after_save  :hashify
 
 	def links=(links)

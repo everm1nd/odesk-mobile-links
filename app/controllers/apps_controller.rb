@@ -22,8 +22,38 @@ class AppsController < ApplicationController
     render :edit
   end
 
+  def shortlink
+    @app = App.find_by_hashid(params[:hashid])
+    if @app.markets.count > 1
+      vendor = identify_device_vendor
+      market = @app.markets.find_by_vendor(vendor)
+      if market
+        redirect_to market.url
+      else
+        render :show
+      end
+    else
+      redirect_to @app.markets.first.url
+    end
+  end
+
   private
   def app_params
     params.require(:app).permit(:links, :hashid)
+  end
+
+  def identify_device_vendor
+    case request.user_agent
+    when /iPhone|iPad/i
+      "apple"
+    when /KFOT|KFTT|KFJWI|KFJWA|KFSOWI|KFTHWI|KFTHWA|KFAPWI|KFAPWA|KFARWI|KFASWI|KFSAWI|KFSAWA|SD4930UR/
+      "amazon"
+    when /Android/i
+      "google"
+    when /Windows Phone/i
+      "microsoft"
+    else
+      "facebook"
+    end
   end
 end
