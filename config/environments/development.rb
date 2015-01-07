@@ -38,4 +38,7 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+  # BetterErrors tweak for VirtualBox support
+  BetterErrors::Middleware.allow_ip! '192.168.50.1'
 end
