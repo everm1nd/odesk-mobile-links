@@ -22,6 +22,10 @@ class AppsController < ApplicationController
     render :edit
   end
 
+  def show
+    @app = App.find(params[:id])
+  end
+
   def shortlink
     @app = App.find_by_hashid(params[:hashid])
     if @app.markets.count > 1
