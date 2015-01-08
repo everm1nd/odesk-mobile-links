@@ -32,6 +32,6 @@ class App < ActiveRecord::Base
 	end
 
 	def self.shorthost
-		'http://appme.io'
+		'http://limitless-plains-9114.herokuapp.com/a'
 	end
 end
