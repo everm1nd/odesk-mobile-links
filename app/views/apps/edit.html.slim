@@ -13,4 +13,4 @@ p.lead
         = f.submit 'Customize', class:"btn btn-success"
     ul.markets
       - @app.markets.each do |market|
-        li class="vendor-#{market.vendor}" =link_to market.url.truncate(65), market.url
+        li class="vendor-#{market.vendor}" =link_to market.url.truncate(65), market.url, target: '_blank'
