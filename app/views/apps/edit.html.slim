@@ -2,7 +2,7 @@ p.lead You can use this link now
 p.lead
   = simple_form_for @app, html: { class: 'app' } do |f|
     = f.input :shortlink, wrapper: :vertical_input_group, label: false do
-      = f.input_field :shortlink, label: false, class: 'form-control', disabled: true
+      = f.input_field :shortlink, label: false, class: 'form-control'
       span class="input-group-btn"
         button id="copy-btn" data-clipboard-text="#{@app.shortlink}" class="btn btn-success" type="button" Copy
     = f.input :hashid, wrapper: :vertical_input_group, label: 'Customize your link' do
