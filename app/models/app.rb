@@ -7,6 +7,7 @@ class App < ActiveRecord::Base
 											uniqueness: true,
 											format: /[a-zA-Z0-9\_\-]+/,
 											if: :persisted?
+	validates_presence_of :links
 	validates_associated :markets
 
 	after_save  :hashify
