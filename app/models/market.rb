@@ -1,13 +1,22 @@
 class Market < ActiveRecord::Base
+  #TODO: shouldn't we use a strategy patterng here?
+
   belongs_to :app
 
   validates_presence_of :url, :app, :vendor
 
-  before_save :process_apple_url, if: -> { vendor == "apple" }
-
   def initialize(*args)
     super(*args)
     classify_url
+  end
+
+  def affiliate_url
+    case vendor
+      when 'apple'
+        georiot_url(self.url)
+      else
+        self.url
+    end
   end
 
   private
@@ -29,8 +38,8 @@ class Market < ActiveRecord::Base
     self.vendor = vendor
   end
 
-  def process_apple_url
+  def georiot_url(url)
     georiot_id = 6554
-    self.url = "http://target.georiot.com/Proxy.ashx?tsid=#{georiot_id}&GR_URL=#{URI.encode(self.url,/\W/)}"
+    "http://target.georiot.com/Proxy.ashx?tsid=#{georiot_id}&GR_URL=#{URI.encode(url,/\W/)}"
   end
 end
