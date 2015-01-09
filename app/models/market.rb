@@ -17,7 +17,7 @@ class Market < ActiveRecord::Base
         "facebook"
       when /^https?:\/\/apps.facebook.com\/\S+/
         "facebook"
-      when /^https?:\/\/itunes.apple.com\/[a-zA-Z\-\_]+\/app\/\S+/
+      when /^https?:\/\/itunes.apple.com\/[a-zA-Z\-\_]*\/?app\/\S+/
         "apple"
       when /^https?:\/\/play.google.com\/store\/apps\/details\?id=\S+/
         "google"
