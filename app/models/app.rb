@@ -14,7 +14,7 @@ class App < ActiveRecord::Base
 
 	def links=(links)
 		@links = links
-		@links.split( /\r?\n/ ).each do |string|
+		@links.split( /\r?\n/ ).map(&:strip).each do |string|
 			markets.build(url: string)
 		end
 	end
