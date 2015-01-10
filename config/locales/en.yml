@@ -22,15 +22,25 @@
 en:
   application:
     title: 'Store Links'
+  apps:
+    new:
+      subtitle: 'Create your own cross-platform app links'
+    edit:
+      subtitle: 'You can use this link now'
+    show:
+      subtitle: 'Choose your vendor'
   simple_form:
     placeholders:
       app:
-        links: 'Place your links here, comma sepearted.'
+        links: 'Paste your App Store links here'
+    labels:
+      app:
+        hashid: 'Customize your link'
   helpers:
     submit:
       app:
         create: "Link"
-        update: "Update"
+        update: "Customize"
   activerecord:
     errors:
       models:
