@@ -9,12 +9,13 @@ class App < ActiveRecord::Base
 											if: :persisted?
 	validates_presence_of :links
 	validates_associated :markets
+	validate :unique_links
 
 	after_save  :hashify
 
 	def links=(links)
 		@links = links
-		@links.split( /\r?\n/ ).map(&:strip).each do |string|
+		links_list.each do |string|
 			markets.build(url: string)
 		end
 	end
@@ -34,5 +35,13 @@ class App < ActiveRecord::Base
 
 	def self.shorthost
 		'http://limitless-plains-9114.herokuapp.com/a'
+	end
+
+	def links_list
+		@links.split( /\r?\n/ ).map(&:strip)
+	end
+
+	def unique_links
+		errors.add(:links, "you have duplicate links") unless links_list.uniq == links_list
 	end
 end

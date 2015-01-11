@@ -1,5 +1,5 @@
-.errors
-  p Following links are not valid:
+.errors class="has-errors"
+  p class="help-block" Following links are not valid:
   ul
     - unless @app.errors.empty?
       - @app.markets.each do |market|

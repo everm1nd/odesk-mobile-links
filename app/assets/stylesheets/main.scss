@@ -99,13 +99,9 @@ h1.cover-heading a {
 */
 
 form.app {
-  .errors {
-    color: #e33;
-
-    ul {
-      text-align: left;
-      margin-bottom: 25px;
-    }
+  .errors ul {
+    text-align: left;
+    margin-bottom: 25px;
   }
 
   textarea {
