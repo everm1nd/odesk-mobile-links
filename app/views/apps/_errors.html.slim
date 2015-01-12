@@ -1,6 +1,6 @@
-.errors class="has-errors"
+.errors class="has-error"
   p class="help-block" =t('apps.new.errors')
-  ul
+  ul class="help-block"
     - unless @app.errors.empty?
       - @app.markets.each do |market|
         - unless market.valid?
