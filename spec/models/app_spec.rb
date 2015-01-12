@@ -16,4 +16,8 @@ describe App do
     @app = App.create(links: links)
     expect(@app.persisted?).to be true
   end
+
+  it "is not valid after empty init" do
+    expect(App.new.valid?).to be false
+  end
 end

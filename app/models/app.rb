@@ -9,7 +9,7 @@ class App < ActiveRecord::Base
 											if: :persisted?
 	validates_presence_of :links
 	validates_associated :markets
-	validate :unique_links
+	validate :unique_links, if: :links
 
 	after_save  :hashify
 
