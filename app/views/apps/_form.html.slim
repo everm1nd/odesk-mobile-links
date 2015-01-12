@@ -1,4 +1,4 @@
 = simple_form_for @app, html: { class: 'app' } do |f|
   = f.input :links, as: :text, label: false
-  = render 'errors' unless @app.valid? || @app.markets.empty?
+  = render 'errors' unless @app.markets.all?(&:valid?)
   = f.button :submit, class: 'btn-lg btn-success'
