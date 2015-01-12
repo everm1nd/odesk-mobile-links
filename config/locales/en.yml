@@ -25,6 +25,7 @@ en:
   apps:
     new:
       subtitle: 'Create your own cross-platform app links'
+      errors: 'Following links are not valid:'
     edit:
       subtitle: 'You can use this link now'
     show:
