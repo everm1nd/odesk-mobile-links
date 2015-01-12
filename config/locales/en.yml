@@ -27,7 +27,7 @@ en:
       subtitle: 'Create your own cross-platform app links'
       errors: 'Following links are not valid:'
     edit:
-      subtitle: 'You can use this link now'
+      subtitle: 'You can use this link or <a href="%{url}">create another one</a>'
     show:
       subtitle: 'Choose your vendor'
   simple_form:
