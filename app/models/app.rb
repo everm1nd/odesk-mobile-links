@@ -34,7 +34,7 @@ class App < ActiveRecord::Base
 	end
 
 	def self.shorthost
-		'http://limitless-plains-9114.herokuapp.com/a'
+		'http://apptoolshq.com/crossplatformlink/a'
 	end
 
 	def links_list
