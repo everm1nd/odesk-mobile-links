@@ -22,5 +22,9 @@ module StoreLinker
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    config.action_controller.relative_url_root = '/crossplatformlink'
+
+    config.assets.prefix = "/crossplatformlink"
   end
 end

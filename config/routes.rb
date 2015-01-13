@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  root 'apps#new'
+  scope Rails.application.config.action_controller.relative_url_root do
+    root 'apps#new'
 
-  resources :apps
+    resources :apps
 
-  get '/a/:hashid', to: 'apps#shortlink'
+    get '/a/:hashid', to: 'apps#shortlink'
+  end
 end
