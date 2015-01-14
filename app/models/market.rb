@@ -8,6 +8,7 @@ class Market < ActiveRecord::Base
   def initialize(*args)
     super(*args)
     classify_url
+    httpfy_url
   end
 
   def affiliate_url
@@ -22,20 +23,24 @@ class Market < ActiveRecord::Base
   private
   def classify_url
     vendor = case url
-      when /^https?:\/\/(www.)?facebook.com\/games\/\S+/
+    when /(^https?:\/\/)?(www.)?facebook.com\/games\/\S+/
         "facebook"
-      when /^https?:\/\/apps.facebook.com\/\S+/
+      when /(^https?:\/\/)?apps.facebook.com\/\S+/
         "facebook"
-      when /^https?:\/\/itunes.apple.com\/[a-zA-Z\-\_]*\/?app\/\S+/
+      when /(^https?:\/\/)?itunes.apple.com\/[a-zA-Z\-\_]*\/?app\/\S+/
         "apple"
-      when /^https?:\/\/play.google.com\/store\/apps\/details\?id=\S+/
+      when /(^https?:\/\/)?play.google.com\/store\/apps\/details\?id=\S+/
         "google"
-      when /^https?:\/\/(www.)?windowsphone.com\/[a-zA-Z\-\_]+\/\S+/
+      when /(^https?:\/\/)?(www.)?windowsphone.com\/[a-zA-Z\-\_]+\/\S+/
         "microsoft"
-      when /^https?:\/\/(www.)?amazon(\.[a-z]+)+\/[a-zA-Z\-\_]+\/dp\/\S+/
+      when /(^https?:\/\/)?(www.)?amazon(\.[a-z]+)+\/[a-zA-Z\-\_]+\/dp\/\S+/
         "amazon"
     end
     self.vendor = vendor
+  end
+
+  def httpfy_url
+    self.url = 'http://' + self.url unless url =~ /^https?:\/\//
   end
 
   def georiot_url(url)
