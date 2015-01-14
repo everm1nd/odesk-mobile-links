@@ -12,4 +12,4 @@ p.lead
         = f.submit class:"btn btn-success"
     ul.markets
       - @app.markets.each do |market|
-        li class="vendor-#{market.vendor}" =link_to market.url.truncate(65), market.affiliate_url, target: '_blank'
+        li class="vendor-#{market.vendor}" =link_to market.url.truncate(65), market.url, target: '_blank'
