@@ -32,7 +32,7 @@ class Market < ActiveRecord::Base
         "google"
       when /^https?:\/\/(www.)?windowsphone.com\/[a-zA-Z\-\_]+\/\S+/
         "microsoft"
-      when /^https?:\/\/(www.)?amazon.com\/[a-zA-Z\-\_]+\/dp\/\S+/
+      when /^https?:\/\/(www.)?amazon(\.[a-z]+)+\/[a-zA-Z\-\_]+\/dp\/\S+/
         "amazon"
     end
     self.vendor = vendor
