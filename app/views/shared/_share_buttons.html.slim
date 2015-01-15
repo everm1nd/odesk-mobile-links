@@ -1,0 +1,8 @@
+/ TODO: move to helper?
+ul.share.list-inline
+  li
+    a.entypo-facebook target='_blank' href='https://www.facebook.com/dialog/share?app_id=1532452397038160&display=page&href=#{@app.shortlink}&redirect_uri=#{App.shorthost}'
+  li
+    a.entypo-twitter target='_blank' href='https://twitter.com/intent/tweet?url=#{@app.shortlink}'
+  li
+    a.entypo-mail href='mailto:?body="#{@app.shortlink}"'
