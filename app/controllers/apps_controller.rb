@@ -56,8 +56,6 @@ class AppsController < ApplicationController
       "google"
     when /Windows Phone/i
       "microsoft"
-    else
-      "facebook"
     end
   end
 end
