@@ -10,7 +10,9 @@ class App < ActiveRecord::Base
 	validates_presence_of :links, unless: :persisted?
 	validates_associated :markets
 	validate :unique_links, if: :links
+	validate :customization, if: :hashid_changed?
 
+	before_update -> { self.customized = true }, if: :hashid_changed?
 	after_save  :hashify
 
 	def links=(links)
@@ -43,5 +45,9 @@ class App < ActiveRecord::Base
 
 	def unique_links
 		errors.add(:links, "you have duplicate links") unless links_list.uniq == links_list
+	end
+
+	def customization
+		errors.add(:hashid, "already was customized") if customized
 	end
 end

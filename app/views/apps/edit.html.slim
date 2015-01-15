@@ -5,11 +5,12 @@ p.lead
       = f.input_field :shortlink, label: false, class: 'form-control', autofocus: true
       span class="input-group-btn"
         button id="copy-btn" data-clipboard-text="#{@app.shortlink}" class="btn btn-success" type="button" Copy
-    = f.input :hashid, wrapper: :vertical_input_group do
-      span class="input-group-addon" = App.shorthost + '/'
-      = f.input_field :hashid, class: 'form-control'
-      span class="input-group-btn"
-        = f.submit class:"btn btn-success"
+    - unless @app.customized
+      = f.input :hashid, wrapper: :vertical_input_group do
+        span class="input-group-addon" = App.shorthost + '/'
+        = f.input_field :hashid, class: 'form-control'
+        span class="input-group-btn"
+          = f.submit class:"btn btn-success"
     ul.markets
       - @app.markets.each do |market|
         li class="vendor-#{market.vendor}" =link_to market.url.truncate(65), market.url, target: '_blank'
