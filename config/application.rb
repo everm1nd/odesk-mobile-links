@@ -25,6 +25,6 @@ module StoreLinker
 
     config.action_controller.relative_url_root = '/crossplatformlink'
 
-    config.assets.prefix = "/crossplatformlink"
+    config.assets.prefix = "/crossplatformlink/assets"
   end
 end
