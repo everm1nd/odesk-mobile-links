@@ -17,7 +17,7 @@ p.lead
     .addthis_sharing_toolbox
     - unless @app.customized
       = f.input :hashid, wrapper: :vertical_input_group do
-        span class="input-group-addon" = App.shorthost + '/'
+        span class="input-group-addon" = App.shorthost
         = f.input_field :hashid, class: 'form-control'
         span class="input-group-btn"
           = f.submit class:"btn btn-success"
