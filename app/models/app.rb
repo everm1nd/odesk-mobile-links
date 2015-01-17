@@ -23,7 +23,7 @@ class App < ActiveRecord::Base
 	end
 
 	def shortlink
-		"#{App.shorthost}/a/#{hashid}"
+		"#{App.shorthost}/#{hashid}"
 	end
 
 	private
@@ -36,7 +36,7 @@ class App < ActiveRecord::Base
 	end
 
 	def self.shorthost
-		'http://apptoolshq.com/crossplatformlink'
+		'http://appme.io'
 	end
 
 	def links_list
