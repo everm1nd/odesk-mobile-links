@@ -11,13 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150114145153) do
+ActiveRecord::Schema.define(version: 20150117110926) do
 
   create_table "apps", force: :cascade do |t|
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
     t.string   "hashid",     limit: 255
-    t.boolean  "customized", limit: 1,   default: false
   end
 
   create_table "markets", force: :cascade do |t|

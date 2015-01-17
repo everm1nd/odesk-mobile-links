@@ -12,7 +12,6 @@ class App < ActiveRecord::Base
 	validate :unique_links, if: :links
 	validate :customization, if: :hashid_changed?
 
-	before_update -> { self.customized = true }, if: :hashid_changed?
 	after_save  :hashify
 
 	def links=(links)
@@ -26,13 +25,21 @@ class App < ActiveRecord::Base
 		App.shorthost + hashid
 	end
 
+	def customized?
+		self.hashid_was != hashed_id
+	end
+
 	private
 	def hashify
-		update_column(:hashid, Hashids.new(hash_salt).encode(self.id)) unless hashid
+		update_column(:hashid, hashed_id) unless hashid
 	end
 
 	def hash_salt
 		"whatever"
+	end
+
+	def hashed_id
+		Hashids.new(hash_salt).encode(self.id)
 	end
 
 	def self.shorthost
@@ -48,6 +55,6 @@ class App < ActiveRecord::Base
 	end
 
 	def customization
-		errors.add(:hashid, "already was customized") if customized
+		errors.add(:hashid, "already was customized") if customized?
 	end
 end
