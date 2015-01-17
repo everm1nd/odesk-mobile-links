@@ -9,7 +9,10 @@ p.lead
     javascript:
       var addthis_share = {
         url: "#{@app.shortlink}",
-        title: 'Check out this app!'
+        title: 'Check out this app!',
+        templates: {
+          twitter: '{{title}} #{@app.shortlink}'
+        }
       }
     .addthis_sharing_toolbox
     - unless @app.customized
