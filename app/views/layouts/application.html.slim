@@ -6,6 +6,7 @@ html
     title= t('application.title')
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = javascript_include_tag '//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-54b4c11e3387ebe7', 'data-turbolinks-track' => true, async: true
     = csrf_meta_tags
   body
     .site-wrapper

@@ -6,7 +6,12 @@ p.lead
       span class="input-group-btn"
         button id="copy-btn" data-clipboard-text="#{@app.shortlink}" class="btn btn-success" type="button" Copy
     h4 Share
-    = render 'shared/share_buttons'
+    javascript:
+      var addthis_share = {
+        url: "#{@app.shortlink}",
+        title: 'Check out this app!'
+      }
+    .addthis_sharing_toolbox
     - unless @app.customized
       = f.input :hashid, wrapper: :vertical_input_group do
         span class="input-group-addon" = App.shorthost + '/a/'
