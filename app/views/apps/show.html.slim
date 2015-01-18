@@ -1,4 +1,4 @@
 p.lead= t('apps.show.subtitle')
 ul class="list-inline" class="vendors-list"
   - @app.markets.each do |market|
-    li= link_to image_tag("vendors/#{market.vendor}-orig.png"), market.url, target: '_blank'
+    li= link_to image_tag("vendors/#{market.vendor}-orig.png"), market.affiliate_url, target: '_blank'

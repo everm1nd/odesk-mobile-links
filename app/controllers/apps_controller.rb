@@ -32,7 +32,7 @@ class AppsController < ApplicationController
       vendor = identify_device_vendor
       market = @app.markets.find_by_vendor(vendor)
       if market
-        redirect_to market.url
+        redirect_to market.affiliate_url
       else
         render :show
       end
